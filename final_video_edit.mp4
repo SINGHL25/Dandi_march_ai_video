@@ -1,1 +1,16 @@
+from moviepy.editor import VideoFileClip, AudioFileClip, CompositeVideoClip
+
+# Load avatar video and voiceover
+video = VideoFileClip("avatar_gandhi_talking.mp4")
+voice = AudioFileClip("voiceover.mp3")
+bg_music = AudioFileClip("bg_music.mp3").volumex(0.2)
+
+# Combine both audios
+final_audio = voice.set_duration(video.duration).audio.set_duration(video.duration).volumex(1.0).fx(lambda a: a + bg_music)
+
+# Replace audio
+video = video.set_audio(final_audio)
+
+# Export final video
+video.write_videofile("final_video_edit.mp4", fps=24)
 
