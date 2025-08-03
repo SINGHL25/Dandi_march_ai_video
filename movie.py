@@ -6,7 +6,7 @@ change_settings({"IMAGEMAGICK_BINARY": "/usr/bin/convert"})
 
 !apt-get update && apt-get install -y imagemagick
 
-
+#RUN ON GOOGLE COLAB
 
 
 
